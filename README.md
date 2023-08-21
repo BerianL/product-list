@@ -22,7 +22,8 @@ I've utilised various array methods in my code to manage the `inStock` array. Be
 
 By using these array methods, I effectively managed and displayed information from the `inStock` array. The outcome is an intuitive user interface, enabling seamless item searches, item details enhanced with emojis, and a structured list of available items.
 
-Additionally, I have also employed other methods to enhance the functionality of my code. The `addEventListener() `method enables interaction with the webpage by attaching event handlers to specific elements. This ensures that when the "Search" button is clicked or the "Enter" key is pressed, the appropriate action is triggered, such as showing the user a message about the availability of a product. I've also implemented a more flexible search function by utilising the `includes() `method to allow searches like "cookie" and "cookies" to yield results. While this solution isn't exhaustive, it fits well within the scope of this project, providing users with a practical and user-friendly way to inquire about items. Furthermore, the `querySelector() `and `getElementById()` methods are utilised to efficiently select specific HTML elements for manipulation, facilitating the seamless integration of user input and output messages.
+Additionally, I have also employed other methods to enhance the functionality of my code. The `addEventListener() `method enables interaction with the webpage by attaching event handlers to specific elements. This ensures that when the "Search" button is clicked or the "Enter" key is pressed, the appropriate action is triggered, such as showing the user a message about the availability of a product. I've also implemented a more flexible search function by allowing plural and singualar searches like "strawberry" and "strawberries" to yield results. To implement this I have used the pluralize library. 
+Furthermore, the `querySelector() `and `getElementById()` methods are utilised to efficiently select specific HTML elements for manipulation, facilitating the seamless integration of user input and output messages.
 
 ## How to Use
 
@@ -37,10 +38,11 @@ This code employs standard JavaScript features and should function properly in m
 
 ## Dependencies
 
-The code relies on the Swal (SweetAlert) library to display modal dialogs with custom content. To use this functionality, make sure to include the SweetAlert library in your HTML file.
+The code relies on the Swal (SweetAlert) library to display modal dialogs with custom content. To use this functionality, make sure to include the SweetAlert library in your HTML file. I also use the pluralize library to ensure that the correct plural form of the item name is displayed in the dialog box. The DaisyUI library is used to style the HTML elements. Below are links to the libraries used:
 
 - SweetAlert2 library: [SweetAlert2](https://sweetalert2.github.io/)
 - DaisyUI: [DaisyUI](https://daisyui.com/)
+- Pluralize: [Pluralize](https://www.npmjs.com/package/pluralize)
 
 ## Acknowledgments
 

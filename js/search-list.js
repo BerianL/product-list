@@ -1,23 +1,7 @@
-document.addEventListener("DOMContentLoaded", function() {
-  const inStock = [
-    { name: 'pizza', emoji: '🍕' },
-    { name: 'cookies', emoji: '🍪' },
-    { name: 'eggs', emoji: '🥚' },
-    { name: 'apples', emoji: '🍎' },
-    { name: 'milk', emoji: '🥛' },
-    { name: 'cheese', emoji: '🧀' },
-    { name: 'bread', emoji: '🍞' },
-    { name: 'lettuce', emoji: '🥬' },
-    { name: 'carrots', emoji: '🥕' },
-    { name: 'broccoli', emoji: '🥦' },
-    { name: 'potatoes', emoji: '🥔' },
-    { name: 'crackers', emoji: '🍘' },
-    { name: 'onions', emoji: '🧅' },
-    { name: 'butter', emoji: '🧈' },
-    { name: 'limes', emoji: '🍋' },
-    { name: 'cucumbers', emoji: '🥒' },
-  ];
+import inStock from './products.js';
 
+document.addEventListener("DOMContentLoaded", function() {
+  
   const inputElement = document.querySelector('.input');
   const searchButton = document.getElementById('search');
   const productListButton = document.getElementById('product-list');
@@ -30,8 +14,11 @@ document.addEventListener("DOMContentLoaded", function() {
     if (search) {
       const foundItem = inStock.find(item => {
         const itemName = item.name.toLowerCase();
-        return itemName.includes(search) || itemName === search + 's'; // Allow plural search using includes().
+        const pluralizedItemName = pluralize(itemName);
+      
+        return itemName === search || pluralizedItemName === search || pluralizedItemName === pluralize(search);
       });
+      
 
       if (foundItem) {
         const position = inStock.indexOf(foundItem) + 1; // Uses IndexOf() to get the position of the item in the array
@@ -41,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
         emoji = foundItem.emoji;
       } else {
         message = `Sorry, we do not have ${search}.`;
-        emoji = '❌'; // Red cross emoji for not in stock
+        emoji = '❌';
       }
 
       Swal.fire({
