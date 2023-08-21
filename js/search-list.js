@@ -53,16 +53,29 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function showInStockList() {
-    const itemsMessage = inStock.map(item => `${item.emoji} ${item.name}`).join('<br>'); // Join array elements with <br> tag
-
+    const itemsPerColumn = Math.ceil(inStock.length / 3);
+  
+    const columns = Array.from({ length: 3 }, (_, columnIndex) => {
+      const startIndex = columnIndex * itemsPerColumn;
+      const endIndex = startIndex + itemsPerColumn;
+      const columnItems = inStock.slice(startIndex, endIndex);
+  
+      const columnHTML = columnItems.map(item => `${item.emoji} ${item.name}`).join('<br>');
+      return `<div class="flex flex-col">${columnHTML}</div>`;
+    }).join('');
+  
     Swal.fire({
-      html: `<div class="text-3xl mb-4">Items in stock:</div><div>${itemsMessage}</div>`,
+      html: `
+        <div class="text-3xl mb-4">Items in stock:</div>
+        <div class="grid grid-cols-3 gap-4">${columns}</div>
+      `,
       confirmButtonText: 'OK',
       customClass: {
         content: 'text-left'
       }
     });
   }
+  
 
   searchButton.addEventListener('click', showAlert);
 
