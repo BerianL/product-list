@@ -1,6 +1,6 @@
 # Product List Searching Values in Arrays
 
-This repository contains a JavaScript program that enables users to search for items in an array of in-stock products using HTML elements for input and display. The program utilises various features and techniques, enhancing the user experience and interaction. Below, you'll find an overview of the program's features, how to use it, its compatibility, and any dependencies required.
+This repository contains a JavaScript script that enables users to search for items in an array of in-stock products using HTML elements for input and display. The script utilises various features and techniques, enhancing the user experience and interaction. Below, you'll find an overview of the program's features, how to use it, its compatibility, and any dependencies required. As I've added a few more items to the array, I have now placed the array in a seperated file which I import into my main script.
 
 This program was created whilst completing the JavaScript Arrays course on [Treehouse](https://teamtreehouse.com). The original course guided us on how to write a program that used `join()`, `indexOf()` and `includes()`.
 
